@@ -2,20 +2,20 @@
 
 <form action="traitement.php" method="POST">
     <div class="champ-formulaire">
-        <label for="titre">Titre de l'œuvre</label>
-        <input type="text" name="titre" id="titre">
+        <label for="Titre">Titre de l'œuvre</label>
+        <input type="text" name="Titre" id="Titre" required>
     </div>
     <div class="champ-formulaire">
-        <label for="artiste">Auteur de l'œuvre</label>
-        <input type="text" name="artiste" id="artiste">
+        <label for="Artiste">Auteur de l'œuvre</label>
+        <input type="text" name="Artiste" id="Artiste" required>
     </div>
     <div class="champ-formulaire">
-        <label for="image">URL de l'image</label>
-        <input type="url" name="image" id="image">
+        <label for="Image">URL de l'image</label>
+        <input type="url" name="Image" id="Image" required>
     </div>
     <div class="champ-formulaire">
-        <label for="description">Description</label>
-        <textarea name="description" id="description"></textarea>
+        <label for="Description">Description</label>
+        <textarea name="Description" id="Description" required></textarea>
     </div>
 
     <input type="submit" value="Valider" name="submit">
