@@ -2,7 +2,19 @@
     require 'header.php';
     require 'bdd.php';
 
-    $bdd     = connexion();
+    $bdd = connexion();
+
+    $CountOeuvre = $bdd->query('SELECT COUNT(*) FROM oeuvre');
+    $maxOeuvre   = (int) $CountOeuvre->fetchColumn();
+
+    //Si l'id de l'url est supperieur à l'id max de la bdd, on redirige sur la page d'accueil
+    if ($_GET['id'] > $maxOeuvre) {
+        header('Location: index.php');
+    }
+
+    /*une fois qu'on a vérifier que l'url contient un id bien borné
+    on peut passer à la suite du traitement*/
+
     $requete = $bdd->prepare('SELECT * FROM oeuvre WHERE id = ?');
     $requete->execute([$_GET['id']]);
     $oeuvre = $requete->fetch();
@@ -16,6 +28,7 @@
     if (is_null($oeuvre)) {
         header('Location: index.php');
     }
+
 ?>
 
 <article id="detail-oeuvre">
